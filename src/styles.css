@@ -66,6 +66,11 @@ main {
   font-weight: 400;
   line-height: 24px;
 }
+.emoji-icon {
+  width: 40px;
+  height: 70px;
+  margin-bottom: 30px;
+}
 
 .current-details strong {
   color: #f65282;
