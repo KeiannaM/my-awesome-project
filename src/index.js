@@ -1,5 +1,5 @@
 function displayTemperature(response) {
-  let temperature = response.data.temperature.current;
+  console.log(response.data.temperature.current);
   let temperatureElement = document.querySelector("#current-temperature");
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#description");
@@ -10,7 +10,7 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(temperature);
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
@@ -20,7 +20,7 @@ function displayTemperature(response) {
 
 function searchCity(city) {
   let apiKey = `380fb5b4f0tf2759f240a21o5bb1109d`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=380fb5b4f0tf2759f240a21o5bb1109d&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -28,7 +28,7 @@ function searchCity(city) {
 function search(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
-
+  let city = searchInputElement.value;
   searchCity(searchInputElement.value);
 }
 
