@@ -18,7 +18,7 @@ function displayTemperature(response) {
   getForecast(response.data.city);
 }
 
-function showConversion(event) {
+function weatherConversion(event) {
   event.preventDefault();
   let farenheitTemperature = (14 * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
@@ -109,4 +109,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 searchCity("Brooklyn");
-showConversion();
