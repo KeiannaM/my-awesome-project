@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>My weather application</title>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <title>Weather Application</title>
   </head>
   <body>
     <div class="weather-app">
       <header>
-        <form id="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city.."
@@ -30,41 +30,44 @@
       <main>
         <div class="current-weather">
           <div>
-            <h1 class="current-city" id="current-city">Paris</h1>
+            <h1 class="current-city" id="current-city"></h1>
             <p class="current-details">
-              <span id="current-date"></span><span id="time"></span>,
+              <span id="time"></span>,
               <span id="description"></span>
               <br />
               Humidity: <strong id="humidity"></strong>, Wind:
               <strong id="wind-speed"></strong>
             </p>
           </div>
-          <div class="current-temperature">
+          <div class="current-temperature-container">
             <div id="icon"></div>
             <div class="current-temperature-value" id="temperature"></div>
-            <div class="current-temperature-unit">°C</div>
+            <div class="current-temperature-unit">°F</div>
           </div>
+        </div>
         </div>
         <div class="weather-forecast" id="forecast"></div>
       </main>
+
       <footer>
         <p>
           This project was coded by
-          <a href="#" target="_blank">Keianna McDonald</a> and is
+          <a href="https://github.com/KeiannaM" target="_blank">Keianna McDonald</a> and is
+          on
           <a
             href="https://github.com/KeiannaM/my-awesome-project"
             target="_blank"
-            >on GitHub</a
+            >GitHub</a
           >
-          and
+          and hosted on
           <a
             href="https://main--keianna-mcdonald-weather-app.netlify.app/"
             target="_blank"
-            >hosted on Netlify</a
+            >Netlify</a
           >
         </p>
       </footer>
     </div>
+    <script src="src/index.js"></script>
   </body>
-  <script src="src/index.js"></script>
 </html>
