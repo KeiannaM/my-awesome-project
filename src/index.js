@@ -28,7 +28,6 @@ function weatherConversion(event) {
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
-
   let days = [
     "Sunday",
     "Monday",
@@ -78,11 +77,10 @@ function getForecast(city) {
   let apiUrl =
     "https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric";
 
-  axios(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
@@ -90,13 +88,17 @@ function displayForecast(response) {
       forecastHtml =
         forecastHtml +
         `<div class="weather-forecast-day">
-            <div class = "weather-forecast-date">${day}</div>
-            <div class = "weather-forecast-icon"> 🌤️ </div>
+            <div class = "weather-forecast-date">${formatDay(day.time)}</div>
+            <img src="${
+              day.condititon.icon_url
+            }" class = "weather-forecast-icon"/>
             <div class = "weather-forecast-temperatures">
               <div class = "weather-forecast-temperature">
-                <strong>15°</strong>
+                <strong>${Math.round(day.temperature.maximum)}°</strong>
               </div>
-              <div class="weather-forecast-temperature">9°</div>
+              <div class="weather-forecast-temperature">${Math.round(
+                day.temperature.minimum
+              )}°</div>
             </div>
           </div>`;
     }
@@ -109,3 +111,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 searchCity("Brooklyn");
+displayForecast();
