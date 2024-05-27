@@ -20,13 +20,6 @@ function displayTemperature(response) {
   getForecast(response.data.city);
 }
 
-function weatherConversion(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (14 * 9) / 5 + 32;
-
-  return fahrenheitTemperature;
-}
-
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
